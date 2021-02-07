@@ -4,6 +4,8 @@
 ### Escuela Colombiana de Ingeniería
 ### Arquitecturas de Software – ARSW
 
+### Javier Esteban López
+### Miguel Ángel Fuquene
 
 ## Laboratorio – Programación concurrente, condiciones de carrera y sincronización de hilos - Caso Inmortales
 
