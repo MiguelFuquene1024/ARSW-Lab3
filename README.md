@@ -36,11 +36,11 @@ Control de hilos con wait/notify. Productor/consumidor.
 
 	El productor produce mas rapido de lo que el consumidor consume 
 
-	![](img/productorrapido.PNG)
+	![](./img/productorrapido.PNG)
 	
 	y aun respetamos el bajo consumo de CPU sin errores
 	
-	![](img/bajocpu.PNG)
+	![](./img/bajocpu.PNG)
 
 #### Parte II. – Antes de terminar la clase.
 
@@ -65,6 +65,10 @@ Sincronización y Dead-Locks.
 2. Revise el código e identifique cómo se implemento la funcionalidad antes indicada. Dada la intención del juego, un invariante debería ser que la sumatoria de los puntos de vida de todos los jugadores siempre sea el mismo(claro está, en un instante de tiempo en el que no esté en proceso una operación de incremento/reducción de tiempo). Para este caso, para N jugadores, cual debería ser este valor?.
 
 3. Ejecute la aplicación y verifique cómo funcionan las opción ‘pause and check’. Se cumple el invariante?.
+
+	![Primer Pause and Check](./img/check1.PNG)
+	
+	![Rato despues el Pause and Check](./img/check2.PNG)
 
 4. Una primera hipótesis para que se presente la condición de carrera para dicha función (pause and check), es que el programa consulta la lista cuyos valores va a imprimir, a la vez que otros hilos modifican sus valores. Para corregir esto, haga lo que sea necesario para que efectivamente, antes de imprimir los resultados actuales, se pausen todos los demás hilos. Adicionalmente, implemente la opción ‘resume’.
 
