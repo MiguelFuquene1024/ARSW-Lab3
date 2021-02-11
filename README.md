@@ -49,6 +49,26 @@ Teniendo en cuenta los conceptos vistos de condición de carrera y sincronizaci�
 - La búsqueda distribuida se detenga (deje de buscar en las listas negras restantes) y retorne la respuesta apenas, en su conjunto, los hilos hayan detectado el número de ocurrencias requerido que determina si un host es confiable o no (_BLACK_LIST_ALARM_COUNT_).
 - Lo anterior, garantizando que no se den condiciones de carrera.
 
+Como se puede ver en la siguiente imagen se creo la clase blackListControlador con el objetivo de controlar el atributo ocurrencesCount de tal manera que cuando fuera mayor a 5 es decir que la ip se encontrara en 5 de las listas, cada uno de los threads retornara las ocurrencias sin necesidad de terminar de recorrer todo el subconjunto
+
+
+![](./img/ControladorBlack.PNG)
+
+
+Despues se procedio a ejecutar nuevamente el programa y probar con las correcciones como se muestran en las siguientes imagenes:
+
+*Prueba con 202.24.34.55
+
+
+![](./img/PruebaBlack1.PNG)
+
+
+*Prueba con 202.24.24.55
+
+
+![](./img/PruebaBlack2.PNG)
+
+
 #### Parte II. – Avance para la siguiente clase
 
 Sincronización y Dead-Locks.
@@ -100,11 +120,34 @@ Sincronización y Dead-Locks.
 
 9. Una vez corregido el problema, rectifique que el programa siga funcionando de manera consistente cuando se ejecutan 100, 1000 o 10000 inmortales. Si en estos casos grandes se empieza a incumplir de nuevo el invariante, debe analizar lo realizado en el paso 4.
 
+*Corriendo con 100
+
+
+![](./img/Prueba100.PNG)
+
+
+*Corriendo con 1000
+
+
+![](./img/Prueba1000.PNG)
+
+
+*Corriendo con 10000
+
+
+![](./img/Prueba10000.PNG)
+
+
+
 10. Un elemento molesto para la simulación es que en cierto punto de la misma hay pocos 'inmortales' vivos realizando peleas fallidas con 'inmortales' ya muertos. Es necesario ir suprimiendo los inmortales muertos de la simulación a medida que van muriendo. Para esto:
 	* Analizando el esquema de funcionamiento de la simulación, esto podría crear una condición de carrera? Implemente la funcionalidad, ejecute la simulación y observe qué problema se presenta cuando hay muchos 'inmortales' en la misma. Escriba sus conclusiones al respecto en el archivo RESPUESTAS.txt.
 	* Corrija el problema anterior __SIN hacer uso de sincronización__, pues volver secuencial el acceso a la lista compartida de inmortales haría extremadamente lenta la simulación.
 
 11. Para finalizar, implemente la opción STOP.
+
+
+![](./img/Stop.PNG)
+
 
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />Este contenido hace parte del curso Arquitecturas de Software del programa de Ingeniería de Sistemas de la Escuela Colombiana de Ingeniería, y está licenciado como <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
