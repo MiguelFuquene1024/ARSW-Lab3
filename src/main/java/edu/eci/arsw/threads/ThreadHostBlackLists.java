@@ -5,6 +5,7 @@
  */
 package edu.eci.arsw.threads;
 
+import edu.eci.arsw.blacklistvalidator.blackListControlador;
 import edu.eci.arsw.spamkeywordsdatasource.HostBlacklistsDataSourceFacade;
 
 /**
@@ -18,22 +19,32 @@ public class ThreadHostBlackLists extends Thread {
     private int checkedListsCount = 0;
     private int ocurrencesCount = 0;
     private String ipaddress;
-    private final int BLACK_LIST_ALARM_COUNT;
+    private final int BLACK_LIST_ALARM_COUNT = 5;
+    private blackListControlador controlador;
 
-    public ThreadHostBlackLists(int a, int b,HostBlacklistsDataSourceFacade skds,String ipaddress,int BLACK_LIST_ALARM_COUNT) {
+    public ThreadHostBlackLists(int a, int b,HostBlacklistsDataSourceFacade skds,String ipaddress,blackListControlador controlador) {
         this.a = a;
         this.b = b;
         this.skds = skds;
         this.ipaddress = ipaddress;
-        this.BLACK_LIST_ALARM_COUNT = BLACK_LIST_ALARM_COUNT;
+        this.controlador = controlador;
     }
     public void run(){  
         for (int i=a;i<b+1 && ocurrencesCount<BLACK_LIST_ALARM_COUNT;i++){
             checkedListsCount++;
-
-            if (skds.isInBlackListServer(i, ipaddress)){
-                ocurrencesCount++;   
+            if(controlador.validar()){
+                break;
             }
+            if (skds.isInBlackListServer(i, ipaddress)){
+                if(controlador.canIncrementOcurrencesCount()){
+                    ocurrencesCount++;
+                }
+                else{
+                //System.out.println("Miguel");
+                    break;
+                }
+            }
+            
         }
     }
     public synchronized int  getOcurrencesCount() {
