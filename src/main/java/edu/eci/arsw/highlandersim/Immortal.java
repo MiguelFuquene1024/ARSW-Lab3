@@ -2,6 +2,8 @@ package edu.eci.arsw.highlandersim;
 
 import java.util.List;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Immortal extends Thread {
 
@@ -17,6 +19,7 @@ public class Immortal extends Thread {
 
     private final Random r = new Random(System.currentTimeMillis());
 
+    private boolean detener = false;
 
     public Immortal(String name, List<Immortal> immortalsPopulation, int health, int defaultDamageValue, ImmortalUpdateReportCallback ucb) {
         super(name);
@@ -46,11 +49,20 @@ public class Immortal extends Thread {
             this.fight(im);
 
             try {
-                Thread.sleep(1);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
+            
+            synchronized (this) {
+                while (detener) {                      
+                    try {
+                        wait();
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(Immortal.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }            
         }
 
     }
@@ -75,6 +87,14 @@ public class Immortal extends Thread {
         return health;
     }
 
+    synchronized void detener(){
+        detener=true;
+    }
+    synchronized void renaudar(){
+        detener=false;
+        notify();
+    }
+    
     @Override
     public String toString() {
 
