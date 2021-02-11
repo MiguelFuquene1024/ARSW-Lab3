@@ -57,13 +57,13 @@ Como se puede ver en la siguiente imagen se creo la clase blackListControlador c
 
 Despues se procedio a ejecutar nuevamente el programa y probar con las correcciones como se muestran en las siguientes imagenes:
 
-*Prueba con 202.24.34.55
+*Prueba con 202.24.34.55*
 
 
 ![](./img/PruebaBlack1.PNG)
 
 
-*Prueba con 202.24.24.55
+*Prueba con 202.24.24.55*
 
 
 ![](./img/PruebaBlack2.PNG)
@@ -120,19 +120,19 @@ Sincronización y Dead-Locks.
 
 9. Una vez corregido el problema, rectifique que el programa siga funcionando de manera consistente cuando se ejecutan 100, 1000 o 10000 inmortales. Si en estos casos grandes se empieza a incumplir de nuevo el invariante, debe analizar lo realizado en el paso 4.
 
-*Corriendo con 100
+*Corriendo con 100*
 
 
 ![](./img/Prueba100.PNG)
 
 
-*Corriendo con 1000
+*Corriendo con 1000*
 
 
 ![](./img/Prueba1000.PNG)
 
 
-*Corriendo con 10000
+*Corriendo con 10000*
 
 
 ![](./img/Prueba10000.PNG)
@@ -146,7 +146,7 @@ Sincronización y Dead-Locks.
 11. Para finalizar, implemente la opción STOP.
 
 
-![](./img/Stop.PNG)
+ ![](./img/Stop.PNG)
 
 
 
