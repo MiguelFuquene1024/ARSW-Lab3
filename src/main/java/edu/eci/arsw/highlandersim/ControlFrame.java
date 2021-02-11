@@ -101,8 +101,6 @@ public class ControlFrame extends JFrame {
                 }
 
                 statisticsLabel.setText("<html>"+immortals.toString()+"<br>Health sum:"+ sum);
-                
-                
 
             }
         });
@@ -135,6 +133,15 @@ public class ControlFrame extends JFrame {
         btnStop.setForeground(Color.RED);
         toolBar.add(btnStop);
 
+        btnStop.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                for (Immortal im : immortals) {                 
+                    im.stopHilo();
+                }
+            }
+        });
+                
+        
         scrollPane = new JScrollPane();
         contentPane.add(scrollPane, BorderLayout.CENTER);
 
