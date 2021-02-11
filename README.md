@@ -52,21 +52,20 @@ Teniendo en cuenta los conceptos vistos de condición de carrera y sincronizaci�
 Como se puede ver en la siguiente imagen se creo la clase blackListControlador con el objetivo de controlar el atributo ocurrencesCount de tal manera que cuando fuera mayor a 5 es decir que la ip se encontrara en 5 de las listas, cada uno de los threads retornara las ocurrencias sin necesidad de terminar de recorrer todo el subconjunto
 
 
-![](./img/ControladorBlack.PNG)
-
+![](https://github.com/MiguelFuquene1024/ARSW-Lab3/blob/main/img/ControladorBlack.png)
 
 Despues se procedio a ejecutar nuevamente el programa y probar con las correcciones como se muestran en las siguientes imagenes:
 
 *Prueba con 202.24.34.55*
 
 
-![](./img/PruebaBlack1.PNG)
+![](https://github.com/MiguelFuquene1024/ARSW-Lab3/blob/main/img/PruebaBlack1.png)
 
 
 *Prueba con 202.24.24.55*
 
 
-![](./img/PruebaBlack2.PNG)
+![](https://github.com/MiguelFuquene1024/ARSW-Lab3/blob/main/img/PruebaBlack2.png)
 
 
 #### Parte II. – Avance para la siguiente clase
@@ -123,19 +122,19 @@ Sincronización y Dead-Locks.
 *Corriendo con 100*
 
 
-![](./img/Prueba100.PNG)
+![](https://github.com/MiguelFuquene1024/ARSW-Lab3/blob/main/img/Prueba100.png)
 
 
 *Corriendo con 1000*
 
 
-![](./img/Prueba1000.PNG)
+![](https://github.com/MiguelFuquene1024/ARSW-Lab3/blob/main/img/Prueba1000.png)
 
 
 *Corriendo con 10000*
 
 
-![](./img/Prueba10000.PNG)
+![](https://github.com/MiguelFuquene1024/ARSW-Lab3/blob/main/img/Prueba10000.png)
 
 
 
@@ -146,7 +145,7 @@ Sincronización y Dead-Locks.
 11. Para finalizar, implemente la opción STOP.
 
 
- ![](./img/Stop.PNG)
+![](https://github.com/MiguelFuquene1024/ARSW-Lab3/blob/main/img/Stop.png)
 
 
 
