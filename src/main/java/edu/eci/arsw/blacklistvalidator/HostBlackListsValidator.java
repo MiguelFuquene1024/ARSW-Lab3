@@ -21,6 +21,7 @@ public class HostBlackListsValidator {
     private static final int BLACK_LIST_ALARM_COUNT=5;
     private HostBlacklistsDataSourceFacade skds=HostBlacklistsDataSourceFacade.getInstance();
     private LinkedList<ThreadHostBlackLists> listaThreads = new LinkedList<>();
+    private blackListControlador controlador;
 
     /**
      * Check the given host's IP address in all the available black lists,
@@ -80,14 +81,15 @@ public class HostBlackListsValidator {
     private void crearThreads(String ipaddress, int N){
         int totalServersRegistered = skds.getRegisteredServersCount();
         int amountForThread = (int)skds.getRegisteredServersCount()/N;
+        controlador = new blackListControlador();
         
         for(int i=0;i<N;i++){
             if(totalServersRegistered % N != 0){
-                ThreadHostBlackLists thread = new ThreadHostBlackLists(i*((int)(totalServersRegistered/N)+1),(i+1)*((int)(totalServersRegistered/N)+1)-1,skds,ipaddress,BLACK_LIST_ALARM_COUNT);
+                ThreadHostBlackLists thread = new ThreadHostBlackLists(i*((int)(totalServersRegistered/N)+1),(i+1)*((int)(totalServersRegistered/N)+1)-1,skds,ipaddress,controlador);
                 listaThreads.add(thread);
             }
             else{
-                ThreadHostBlackLists thread = new ThreadHostBlackLists(i*(totalServersRegistered/N),(i+1)*(totalServersRegistered/N)-1,skds,ipaddress,BLACK_LIST_ALARM_COUNT);
+                ThreadHostBlackLists thread = new ThreadHostBlackLists(i*(totalServersRegistered/N),(i+1)*(totalServersRegistered/N)-1,skds,ipaddress,controlador);
                 listaThreads.add(thread);
             }
             
