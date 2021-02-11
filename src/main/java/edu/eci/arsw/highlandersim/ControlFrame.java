@@ -96,9 +96,6 @@ public class ControlFrame extends JFrame {
                 /*
 				 * COMPLETAR
                  */
-                
-                
-                
                 int sum = 0;
                 for (Immortal im : immortals) {
                     sum += im.getHealth();
